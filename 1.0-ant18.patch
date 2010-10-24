@@ -1,0 +1,13 @@
+http://code.google.com/p/jarjar/issues/detail?id=42
+
+--- origsrc/svn/src/main/com/tonicsystems/jarjar/util/AntJarProcessor.java	2010-10-22 03:39:06.000000000 -0500
++++ src/svn/src/main/com/tonicsystems/jarjar/util/AntJarProcessor.java	2010-10-24 00:26:19.660895900 -0500
+@@ -84,7 +84,7 @@ abstract public class AntJarProcessor ex
+         String dir = file.substring(0, slash);
+         if (dirs.add(dir)) {
+           addParentDirs(dir, zOut);
+-          super.zipDir(null, zOut, dir + "/", ZipFileSet.DEFAULT_DIR_MODE, JAR_MARKER);
++          super.zipDir((File) null, zOut, dir + "/", ZipFileSet.DEFAULT_DIR_MODE, JAR_MARKER);
+         }
+       }
+     }

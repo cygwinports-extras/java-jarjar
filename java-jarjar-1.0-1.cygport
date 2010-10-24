@@ -1,0 +1,21 @@
+JAVA_CLASSPATH="asm.jar:asm-commons.jar"
+SVN_URI="http://jarjar.googlecode.com/svn"
+SVN_TAG="release-${PV//./-}/jarjar"
+inherit ant svn
+
+DESCRIPTION="Java library for embedding one jar into another"
+HOMEPAGE="http://code.google.com/p/jarjar/"
+
+PATCH_URI="
+	1.0-ant18.patch
+	1.0-system-asm.patch
+"
+
+# JarJarMojo: Maven2 plugin
+DISTCLEANFILES="lib/*.jar src/main/com/tonicsystems/jarjar/JarJarMojo.java"
+
+ANT_BUILD_ARGS="-Dversion=${PV}"
+ANT_BUILD_TARGETS="jar javadoc"
+ANT_INSTALL_JARS="dist/*.jar"
+ANT_INSTALL_JAVADOC="dist/javadoc"
+ANT_INSTALL_WRAPPERS="jarjar,jarjar.jar"
